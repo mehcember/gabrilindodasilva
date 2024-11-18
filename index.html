@@ -1,108 +1,146 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GitHub Timeline - "Te Amo"</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f1f1f1;
-      overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Gabriel!</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            background-color: #ffe4e1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            flex-direction: column;
+            color: #ff66b2;
+            overflow: hidden;
+        }
 
-    #timeline {
-      position: relative;
-      padding: 20px;
-    }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ff1493;
+        }
 
-    #btnStart, #btnMusic {
-      background-color: #ff66b2;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      cursor: pointer;
-      font-size: 18px;
-      border-radius: 10px;
-    }
+        button {
+            background-color: #ff66b2;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
 
-    button:focus {
-      outline: none;
-    }
+        button:hover {
+            transform: scale(1.05);
+        }
 
-    .heart {
-      position: absolute;
-      animation: flyHearts 3s ease-in infinite;
-      width: 40px;
-      height: 40px;
-    }
+        .mensagem {
+            display: none;
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #ff1493;
+        }
 
-    @keyframes flyHearts {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      50% {
-        transform: translateY(-100px) scale(1.5);
-        opacity: 0.7;
-      }
-      100% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-    }
-  </style>
+        .coracao {
+            font-size: 3em;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Corações voando */
+        .heart {
+            position: absolute;
+            font-size: 2em;
+            color: #ff1493;
+            animation: heartAnimation 3s forwards;
+        }
+
+        @keyframes heartAnimation {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-500px);
+                opacity: 0;
+            }
+        }
+
+    </style>
 </head>
 <body>
-  <div id="timeline">
-    <div id="start">
-      <h1>Oii Gabrielindo 💖</h1>
-      <button id="btnStart">Clica Aquiii</button>
+    <!-- Mensagem inicial -->
+    <h1>Oii gabrielindo <span class="coracao">❤️</span></h1>
+
+    <!-- Botão para clicar -->
+    <button id="botao1">Clica aquiii</button>
+
+    <!-- Mensagem que aparece após clicar -->
+    <p class="mensagem" id="mensagem">Te amo <span class="coracao">❤️</span></p>
+
+    <!-- Botão para soltar o som -->
+    <div class="mensagem" id="botao2-container">
+        <button id="botao2">Solta o som!!!</button>
     </div>
 
-    <div id="message" style="display: none;">
-      <h2>Te Amo</h2>
-      <button id="btnMusic">Solta o Som!!!</button>
-    </div>
-    
-    <div id="hearts" style="display: none;">
-      <!-- Aqui os corações vão aparecer -->
+    <!-- Música do vídeo -->
+    <div id="audio-container" style="display:none;">
+        <iframe id="audio" width="560" height="315" src="https://www.youtube.com/embed/jTtLNio3VMg?autoplay=1&mute=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
-    <audio id="audio" src="https://www.youtube.com/embed/jTtLNio3VMg?autoplay=1" preload="auto"></audio>
-  </div>
+    <script>
+        const botao1 = document.getElementById('botao1');
+        const mensagem = document.getElementById('mensagem');
+        const botao2Container = document.getElementById('botao2-container');
+        const botao2 = document.getElementById('botao2');
+        const audioContainer = document.getElementById('audio-container');
 
-  <script>
-    // Quando clicar no botão "Clica Aquiii", mostra a mensagem "Te Amo"
-    document.getElementById('btnStart').addEventListener('click', function() {
-      document.getElementById('start').style.display = 'none';
-      document.getElementById('message').style.display = 'block';
-      
-      // Função para criar corações voando
-      createHearts();
-    });
+        // Função para criar corações voando
+        function criarCoracao() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = `${Math.random() * 100}%`; // Posiciona aleatoriamente
+            document.body.appendChild(heart);
 
-    // Quando clicar no botão "Solta o Som!!!", toca a música e mostra os corações
-    document.getElementById('btnMusic').addEventListener('click', function() {
-      let audio = document.getElementById('audio');
-      audio.play();
-      
-      // Exibir corações ao tocar a música
-      document.getElementById('hearts').style.display = 'block';
-    });
+            // Remover o coração depois de a animação terminar
+            setTimeout(() => heart.remove(), 3000);
+        }
 
-    // Função para criar corações flutuando
-    function createHearts() {
-      for (let i = 0; i < 30; i++) {
-        let heart = document.createElement('img');
-        heart.src = 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Heart_icon.svg';  // Coração em SVG ou qualquer outra imagem de sua escolha
-        heart.className = 'heart';
-        heart.style.left = `${Math.random() * 100}%`;
-        heart.style.animationDuration = `${Math.random() * 5 + 3}s`;
-        document.getElementById('hearts').appendChild(heart);
-      }
-    }
-  </script>
+        // Gerar corações a cada 500ms
+        setInterval(criarCoracao, 500);
+
+        // Função de clicar no primeiro botão
+        botao1.addEventListener('click', () => {
+            mensagem.style.display = 'block';
+            botao1.style.display = 'none';
+            botao2Container.style.display = 'block';
+        });
+
+        // Função de clicar no botão "Solta o som"
+        botao2.addEventListener('click', () => {
+            audioContainer.style.display = 'block';  // Exibe o iframe
+            const iframe = document.getElementById('audio');
+            iframe.src += "?autoplay=1";  // Assegura que o autoplay esteja ativado
+        });
+    </script>
 </body>
 </html>
