@@ -1,89 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Gabriel!</title>
-<style>
-    /* Estilos básicos */
-    body {
-        background-color: #ffe4e1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        font-family: 'Arial', sans-serif;
-        flex-direction: column;
-        color: #ff66b2;
-        overflow: hidden;
-    }
-    h1 {
-        font-size: 2.5em;
-        margin-bottom: 20px;
-        color: #ff1493;
-        display: flex;
-        align-items: center;
-    }
-    .coração-pulsando {
-        font-size: 3em;
-        color: red;
-        margin-left: 10px;
-        animation: pulsar 1s infinite;
-    }
-    @keyframes pulsar {
-        0% {
-            transform: scale(1);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Gabriel!</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            background-color: #ffe4e1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            flex-direction: column;
+            color: #ff66b2;
+            overflow: hidden;
         }
-        50% {
-            transform: scale(1.2);
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ff1493;
+            display: flex;
+            align-items: center;
         }
-        100% {
-            transform: scale(1);
+        .coração-pulsando {
+            font-size: 3em;
+            color: red;
+            margin-left: 10px;
+            animation: pulsar 1s infinite;
         }
-    }
-    button {
-        background-color: #ff66b2;
-        color: #fff;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 25px;
-        font-size: 1.2em;
-        cursor: pointer;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s;
-        margin-top: 20px;
-    }
-    button:hover {
-        transform: scale(1.05);
-    }
-    .mensagem {
-        display: none;
-        font-size: 1.5em;
-        margin-top: 20px;
-        color: #ff1493;
-    }
-    .gif-container {
-        display: none;
-        margin-top: 30px;
-    }
-    /* Estilo da imagem */
-    .minha-imagem {
-        width: 200px;  /* Ajuste o tamanho conforme necessário */
-        height: auto;
-        animation: saltar 1s infinite;
-    }
-    @keyframes saltar {
-        0% {
-            transform: translateY(0);
+        @keyframes pulsar {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
-        50% {
-            transform: translateY(-20px);
+        button {
+            background-color: #ff66b2;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            margin-top: 20px;
         }
-        100% {
-            transform: translateY(0);
+        button:hover {
+            transform: scale(1.05);
         }
-    }
-</style>
+        .mensagem {
+            display: none;
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #ff1493;
+        }
+        .gif-container {
+            display: none;
+            margin-top: 30px;
+        }
+        /* Estilo da imagem do gatinho */
+        .minha-imagem {
+            width: 200px;  /* Ajuste o tamanho conforme necessário */
+            height: auto;
+            animation: saltar 1s infinite;
+        }
+        @keyframes saltar {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>Oiiii Gabriel <span class="coração-pulsando">❤️</span></h1>
@@ -95,17 +95,15 @@
         <button id="botao2">Solta o som!!!</button>
     </div>
 
-    <!-- Imagem personalizada do Imgur -->
+    <!-- Imagem personalizada -->
     <div class="gif-container" id="gif-container">
-        <blockquote class="imgur-embed-pub" lang="en" data-id="a/ynhK1ai">
-            <a href="//imgur.com/a/ynhK1ai">cat roblox</a>
-        </blockquote>
-        <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+        <!-- A imagem de gatinho do Imgur que vai pular -->
+        <img src="https://i.imgur.com/vZx6glt.gif" alt="Gatinho Pulando" class="minha-imagem">
     </div>
 
     <!-- Áudio da música (Como é grande o meu amor por você - Mundo Bita) -->
     <audio id="audio" style="display:none;" controls>
-        <source src="https://www.youtube.com/watch?v=jTtLNio3VMg" type="audio/mp3">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
         Seu navegador não suporta áudio.
     </audio>
 
@@ -127,7 +125,7 @@
             // Tocar a música
             audio.play();
 
-            // Exibir a imagem
+            // Exibir a imagem do gatinho
             gifContainer.style.display = 'block';
         });
     </script>
