@@ -47,15 +47,27 @@
         display: none;
         margin-top: 30px;
     }
-    /* Estilo da imagem */
-    .minha-imagem {
-        width: 200px;  /* Ajuste o tamanho conforme necessário */
+    /* Estilo do GIF */
+    .gif {
+        width: 200px;
         height: auto;
+        animation: dance 2s infinite;
+    }
+    @keyframes dance {
+        0% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(10deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
     }
 </style>
 </head>
 <body>
-    <h1>Para você, Gabriel! 💖</h1>
+    <h1>Oii Gabriel! 💖</h1>
     <button id="botao1">Clica aquiii</button>
     <p class="mensagem" id="mensagem">Só vindo aqui pra lembrar que você é muito especial pra mim Gabriiiiiiiiel 💖</p>
 
@@ -66,8 +78,7 @@
 
     <!-- Imagem personalizada -->
     <div class="gif-container" id="gif-container">
-        <!-- Substitua o "src" com o link da sua imagem -->
-        <img src="https://imgur.com/a/cat-roblox-ynhK1ai?third_party=1" alt="Minha Imagem" class="minha-imagem" id="minha-imagem">
+        <img src="https://i.imgur.com/ynhK1ai.jpg" alt="Minha Imagem" class="gif" id="gif">
     </div>
 
     <!-- Áudio da música (Como é grande o meu amor por você - Mundo Bita) -->
