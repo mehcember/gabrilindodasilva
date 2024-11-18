@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para o Momo Gabrielindo</title>
+<title>Para Gabriel!</title>
 <style>
     /* Estilos básicos */
     body {
@@ -13,9 +13,9 @@
         align-items: center;
         height: 100vh;
         font-family: 'Arial', sans-serif;
-        overflow: hidden;
-        color: #ff66b2;
         flex-direction: column;
+        color: #ff66b2;
+        overflow: hidden;
     }
     h1 {
         font-size: 2.5em;
@@ -32,6 +32,7 @@
         cursor: pointer;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.2s;
+        margin-top: 20px;
     }
     button:hover {
         transform: scale(1.05);
@@ -42,64 +43,69 @@
         margin-top: 20px;
         color: #ff1493;
     }
-    /* Animação dos emojis de corações e gatinhos */
-    .emoji {
-        position: absolute;
-        font-size: 2em;
-        animation: float 5s infinite;
-        opacity: 0.8;
+    .gif-container {
+        display: none;
+        margin-top: 30px;
     }
-    @keyframes float {
+    /* Estilo do GIF */
+    .gif {
+        width: 200px;
+        height: auto;
+        animation: dance 2s infinite;
+    }
+    @keyframes dance {
         0% {
-            transform: translateY(100vh) scale(0.8);
-            opacity: 0;
+            transform: rotate(0deg);
         }
         50% {
-            opacity: 1;
+            transform: rotate(10deg);
         }
         100% {
-            transform: translateY(-100vh) scale(1.2);
-            opacity: 0;
+            transform: rotate(0deg);
         }
-    }
-    .emoji:nth-child(odd) {
-        animation-duration: 6s;
-    }
-    .emoji:nth-child(even) {
-        animation-duration: 7s;
     }
 </style>
 </head>
 <body>
-    <h1>Oi, Momo!</h1>
-    <button id="botaoMensagem">Clique aqui!</button>
-    <p class="mensagem" id="mensagem">Oiiii momo Gabrielindo, te amo de montão!!!! 🩷🐱</p>
+    <h1>Para você, Gabriel! 💖</h1>
+    <button id="botao1">Clica aquiii</button>
+    <p class="mensagem" id="mensagem">Só vindo aqui pra lembrar que você é muito especial pra mim Gabriiiiiiiiel 💖</p>
 
-    <!-- Emojis animados de corações e gatinhos -->
-    <div class="emoji">❤️</div>
-    <div class="emoji">🐱</div>
-    <div class="emoji">💖</div>
-    <div class="emoji">🐱</div>
-    <div class="emoji">💕</div>
-    <div class="emoji">❤️</div>
-    <div class="emoji">🐱</div>
-    <div class="emoji">💖</div>
-    <div class="emoji">💕</div>
-    <div class="emoji">🐱</div>
+    <!-- Botão para tocar a música -->
+    <div class="mensagem" id="botao2-container">
+        <button id="botao2">Solta o som!!!</button>
+    </div>
+
+    <!-- GIF do gatinho dançando -->
+    <div class="gif-container" id="gif-container">
+        <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Gatinho Dançando" class="gif" id="gif">
+    </div>
+
+    <audio id="audio" style="display:none;" controls>
+        <source src="https://www.youtube.com/watch?v=jTtLNio3VMg" type="audio/mp4">
+        Seu navegador não suporta áudio.
+    </audio>
 
     <script>
-        const botao = document.getElementById('botaoMensagem');
+        const botao1 = document.getElementById('botao1');
         const mensagem = document.getElementById('mensagem');
+        const botao2Container = document.getElementById('botao2-container');
+        const botao2 = document.getElementById('botao2');
+        const gifContainer = document.getElementById('gif-container');
+        const audio = document.getElementById('audio');
 
-        botao.addEventListener('click', () => {
+        botao1.addEventListener('click', () => {
             mensagem.style.display = 'block';
-            botao.style.display = 'none';
+            botao1.style.display = 'none';
+            botao2Container.style.display = 'block';
+        });
 
-            // Ativar animação dos emojis
-            const emojis = document.querySelectorAll('.emoji');
-            emojis.forEach(emoji => {
-                emoji.style.animationPlayState = 'running';
-            });
+        botao2.addEventListener('click', () => {
+            // Tocar música
+            audio.play();
+
+            // Exibir o GIF
+            gifContainer.style.display = 'block';
         });
     </script>
 </body>
