@@ -47,22 +47,10 @@
         display: none;
         margin-top: 30px;
     }
-    /* Estilo do GIF */
-    .gif {
-        width: 200px;
+    /* Estilo da imagem */
+    .minha-imagem {
+        width: 200px;  /* Ajuste o tamanho conforme necessário */
         height: auto;
-        animation: dance 2s infinite;
-    }
-    @keyframes dance {
-        0% {
-            transform: rotate(0deg);
-        }
-        50% {
-            transform: rotate(10deg);
-        }
-        100% {
-            transform: rotate(0deg);
-        }
     }
 </style>
 </head>
@@ -76,9 +64,10 @@
         <button id="botao2">Solta o som!!!</button>
     </div>
 
-    <!-- GIF do gatinho dançando -->
+    <!-- Imagem personalizada -->
     <div class="gif-container" id="gif-container">
-        <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Gatinho Dançando" class="gif" id="gif">
+        <!-- Substitua o "src" com o link da sua imagem -->
+        <img src="https://www.exemplo.com/minha-imagem.jpg" alt="Minha Imagem" class="minha-imagem" id="minha-imagem">
     </div>
 
     <!-- Áudio da música (Como é grande o meu amor por você - Mundo Bita) -->
@@ -89,25 +78,4 @@
 
     <script>
         const botao1 = document.getElementById('botao1');
-        const mensagem = document.getElementById('mensagem');
-        const botao2Container = document.getElementById('botao2-container');
-        const botao2 = document.getElementById('botao2');
-        const gifContainer = document.getElementById('gif-container');
-        const audio = document.getElementById('audio');
-
-        botao1.addEventListener('click', () => {
-            mensagem.style.display = 'block';
-            botao1.style.display = 'none';
-            botao2Container.style.display = 'block';
-        });
-
-        botao2.addEventListener('click', () => {
-            // Tocar a música
-            audio.play();
-
-            // Exibir o GIF
-            gifContainer.style.display = 'block';
-        });
-    </script>
-</body>
-</html>
+        const mensagem = document.getElementById(
