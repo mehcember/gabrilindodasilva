@@ -81,10 +81,8 @@
         <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Gatinho Dançando" class="gif" id="gif">
     </div>
 
-    <audio id="audio" style="display:none;" controls>
-        <source src="https://www.youtube.com/watch?v=jTtLNio3VMg" type="audio/mp4">
-        Seu navegador não suporta áudio.
-    </audio>
+    <!-- Vídeo do YouTube Embutido -->
+    <iframe id="audio" width="0" height="0" src="https://www.youtube.com/embed/jTtLNio3VMg?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
     <script>
         const botao1 = document.getElementById('botao1');
@@ -101,9 +99,6 @@
         });
 
         botao2.addEventListener('click', () => {
-            // Tocar música
-            audio.play();
-
             // Exibir o GIF
             gifContainer.style.display = 'block';
         });
