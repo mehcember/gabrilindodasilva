@@ -1,113 +1,108 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Gabriel!</title>
-<style>
-    /* Estilos básicos */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Timeline - "Te Amo"</title>
+  <style>
     body {
-        background-color: #ffe4e1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        font-family: 'Arial', sans-serif;
-        flex-direction: column;
-        color: #ff66b2;
-        overflow: hidden;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f1f1f1;
+      overflow: hidden;
     }
-    h1 {
-        font-size: 2.5em;
-        margin-bottom: 20px;
-        color: #ff1493;
+
+    #timeline {
+      position: relative;
+      padding: 20px;
     }
-    button {
-        background-color: #ff66b2;
-        color: #fff;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 25px;
-        font-size: 1.2em;
-        cursor: pointer;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s;
-        margin-top: 20px;
+
+    #btnStart, #btnMusic {
+      background-color: #ff66b2;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 10px;
     }
-    button:hover {
-        transform: scale(1.05);
+
+    button:focus {
+      outline: none;
     }
-    .mensagem {
-        display: none;
-        font-size: 1.5em;
-        margin-top: 20px;
-        color: #ff1493;
+
+    .heart {
+      position: absolute;
+      animation: flyHearts 3s ease-in infinite;
+      width: 40px;
+      height: 40px;
     }
-    .gif-container {
-        display: none;
-        margin-top: 30px;
+
+    @keyframes flyHearts {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
     }
-    /* Estilo do GIF */
-    .gif {
-        width: 200px;
-        height: auto;
-        animation: dance 2s infinite;
-    }
-    @keyframes dance {
-        0% {
-            transform: rotate(0deg);
-        }
-        50% {
-            transform: rotate(10deg);
-        }
-        100% {
-            transform: rotate(0deg);
-        }
-    }
-</style>
+  </style>
 </head>
 <body>
-    <h1>Para você, Gabriel! 💖</h1>
-    <button id="botao1">Clica aquiii</button>
-    <p class="mensagem" id="mensagem">Só vindo aqui pra lembrar que você é muito especial pra mim Gabriiiiiiiiel 💖</p>
-
-    <!-- Botão para tocar a música -->
-    <div class="mensagem" id="botao2-container">
-        <button id="botao2">Solta o som!!!</button>
+  <div id="timeline">
+    <div id="start">
+      <h1>Oii Gabrielindo 💖</h1>
+      <button id="btnStart">Clica Aquiii</button>
     </div>
 
-    <!-- GIF do gatinho dançando -->
-    <div class="gif-container" id="gif-container">
-        <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Gatinho Dançando" class="gif" id="gif">
+    <div id="message" style="display: none;">
+      <h2>Te Amo</h2>
+      <button id="btnMusic">Solta o Som!!!</button>
+    </div>
+    
+    <div id="hearts" style="display: none;">
+      <!-- Aqui os corações vão aparecer -->
     </div>
 
-    <!-- Áudio da música (Como é grande o meu amor por você - Mundo Bita) -->
-    <audio id="audio" style="display:none;" controls>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
-        Seu navegador não suporta áudio.
-    </audio>
+    <audio id="audio" src="https://www.youtube.com/embed/jTtLNio3VMg?autoplay=1" preload="auto"></audio>
+  </div>
 
-    <script>
-        const botao1 = document.getElementById('botao1');
-        const mensagem = document.getElementById('mensagem');
-        const botao2Container = document.getElementById('botao2-container');
-        const botao2 = document.getElementById('botao2');
-        const gifContainer = document.getElementById('gif-container');
-        const audio = document.getElementById('audio');
+  <script>
+    // Quando clicar no botão "Clica Aquiii", mostra a mensagem "Te Amo"
+    document.getElementById('btnStart').addEventListener('click', function() {
+      document.getElementById('start').style.display = 'none';
+      document.getElementById('message').style.display = 'block';
+      
+      // Função para criar corações voando
+      createHearts();
+    });
 
-        botao1.addEventListener('click', () => {
-            mensagem.style.display = 'block';
-            botao1.style.display = 'none';
-            botao2Container.style.display = 'block';
-        });
+    // Quando clicar no botão "Solta o Som!!!", toca a música e mostra os corações
+    document.getElementById('btnMusic').addEventListener('click', function() {
+      let audio = document.getElementById('audio');
+      audio.play();
+      
+      // Exibir corações ao tocar a música
+      document.getElementById('hearts').style.display = 'block';
+    });
 
-        botao2.addEventListener('click', () => {
-            // Tocar a música
-            audio.play();
-
-            // Exibir o GIF
-            gifContainer.style.display = 'block';
-        });
-    </script>
+    // Função para criar corações flutuando
+    function createHearts() {
+      for (let i = 0; i < 30; i++) {
+        let heart = document.createElement('img');
+        heart.src = 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Heart_icon.svg';  // Coração em SVG ou qualquer outra imagem de sua escolha
+        heart.className = 'heart';
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.animationDuration = `${Math.random() * 5 + 3}s`;
+        document.getElementById('hearts').appendChild(heart);
+      }
+    }
+  </script>
 </body>
 </html>
