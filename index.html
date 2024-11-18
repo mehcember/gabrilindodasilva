@@ -1,92 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Gabriel!</title>
-    <style>
-        /* Estilos básicos */
-        body {
-            background-color: #ffe4e1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: 'Arial', sans-serif;
-            flex-direction: column;
-            color: #ff66b2;
-            overflow: hidden;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #ff1493;
-            display: flex;
-            align-items: center;
-        }
-        .coração-pulsando {
-            font-size: 3em;
-            color: red;
-            margin-left: 10px;
-            animation: pulsar 1s infinite;
-        }
-        @keyframes pulsar {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        button {
-            background-color: #ff66b2;
-            color: #fff;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.2em;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-            margin-top: 20px;
-        }
-        button:hover {
-            transform: scale(1.05);
-        }
-        .mensagem {
-            display: none;
-            font-size: 1.5em;
-            margin-top: 20px;
-            color: #ff1493;
-        }
-        .gif-container {
-            display: none;
-            margin-top: 30px;
-        }
-        /* Estilo da imagem do gatinho */
-        .minha-imagem {
-            width: 200px;  /* Ajuste o tamanho conforme necessário */
-            height: auto;
-            animation: saltar 1s infinite;
-        }
-        @keyframes saltar {
-            0% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(0);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Gabriel!</title>
+<style>
+    /* Estilos básicos */
+    body {
+        background-color: #ffe4e1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: 'Arial', sans-serif;
+        flex-direction: column;
+        color: #ff66b2;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #ff1493;
+    }
+    button {
+        background-color: #ff66b2;
+        color: #fff;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.2em;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        margin-top: 20px;
+    }
+    button:hover {
+        transform: scale(1.05);
+    }
+    .mensagem {
+        display: none;
+        font-size: 1.5em;
+        margin-top: 20px;
+        color: #ff1493;
+    }
+    .gif-container {
+        display: none;
+        margin-top: 30px;
+    }
+    /* Estilo da imagem */
+    .minha-imagem {
+        width: 200px;  /* Ajuste o tamanho conforme necessário */
+        height: auto;
+    }
+</style>
 </head>
 <body>
-    <h1>Oiiii Gabriel <span class="coração-pulsando">❤️</span></h1>
+    <h1>Para você, Gabriel! 💖</h1>
     <button id="botao1">Clica aquiii</button>
     <p class="mensagem" id="mensagem">Só vindo aqui pra lembrar que você é muito especial pra mim Gabriiiiiiiiel 💖</p>
 
@@ -97,8 +66,8 @@
 
     <!-- Imagem personalizada -->
     <div class="gif-container" id="gif-container">
-        <!-- A imagem de gatinho do Imgur que vai pular -->
-        <img src="https://i.imgur.com/vZx6glt.gif" alt="Gatinho Pulando" class="minha-imagem">
+        <!-- Substitua o "src" com o link da sua imagem -->
+        <img src="https://www.exemplo.com/minha-imagem.jpg" alt="Minha Imagem" class="minha-imagem" id="minha-imagem">
     </div>
 
     <!-- Áudio da música (Como é grande o meu amor por você - Mundo Bita) -->
@@ -125,7 +94,7 @@
             // Tocar a música
             audio.play();
 
-            // Exibir a imagem do gatinho
+            // Exibir a imagem
             gifContainer.style.display = 'block';
         });
     </script>
