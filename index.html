@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Surpresa para Você!</title>
+<title>Para o Momo Gabrielindo</title>
 <style>
     /* Estilos básicos */
     body {
@@ -15,6 +15,7 @@
         font-family: 'Arial', sans-serif;
         overflow: hidden;
         color: #ff66b2;
+        flex-direction: column;
     }
     h1 {
         font-size: 2.5em;
@@ -39,61 +40,52 @@
         display: none;
         font-size: 1.5em;
         margin-top: 20px;
+        color: #ff1493;
     }
-    /* Animação dos corações */
-    .heart {
+    /* Animação dos emojis de corações e gatinhos */
+    .emoji {
         position: absolute;
-        width: 20px;
-        height: 20px;
-        background-color: #ff66b2;
-        clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%);
+        font-size: 2em;
         animation: float 5s infinite;
-        opacity: 0.7;
+        opacity: 0.8;
     }
     @keyframes float {
         0% {
-            transform: translateY(100vh) scale(1);
-            opacity: 0.8;
+            transform: translateY(100vh) scale(0.8);
+            opacity: 0;
         }
         50% {
             opacity: 1;
         }
         100% {
-            transform: translateY(-100vh) scale(0.8);
+            transform: translateY(-100vh) scale(1.2);
             opacity: 0;
         }
     }
-    /* Cores diferentes e tamanhos dos corações */
-    .heart:nth-child(odd) {
-        background-color: #ff1493;
-        width: 25px;
-        height: 25px;
+    .emoji:nth-child(odd) {
         animation-duration: 6s;
     }
-    .heart:nth-child(even) {
-        background-color: #ff69b4;
-        width: 30px;
-        height: 30px;
+    .emoji:nth-child(even) {
         animation-duration: 7s;
     }
 </style>
 </head>
 <body>
-    <h1>Oi, meu amor! 💕</h1>
-    <button id="botaoMensagem">Clique aqui para uma surpresa!</button>
-    <p class="mensagem" id="mensagem">Você é a melhor coisa que aconteceu na minha vida. Amo você mais do que tudo! 💖</p>
+    <h1>Oi, Momo!</h1>
+    <button id="botaoMensagem">Clique aqui!</button>
+    <p class="mensagem" id="mensagem">Oiiii momo Gabrielindo, te amo de montão!!!! 🩷🐱</p>
 
-    <!-- Animação de corações -->
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
+    <!-- Emojis animados de corações e gatinhos -->
+    <div class="emoji">❤️</div>
+    <div class="emoji">🐱</div>
+    <div class="emoji">💖</div>
+    <div class="emoji">🐱</div>
+    <div class="emoji">💕</div>
+    <div class="emoji">❤️</div>
+    <div class="emoji">🐱</div>
+    <div class="emoji">💖</div>
+    <div class="emoji">💕</div>
+    <div class="emoji">🐱</div>
 
     <script>
         const botao = document.getElementById('botaoMensagem');
@@ -102,6 +94,12 @@
         botao.addEventListener('click', () => {
             mensagem.style.display = 'block';
             botao.style.display = 'none';
+
+            // Ativar animação dos emojis
+            const emojis = document.querySelectorAll('.emoji');
+            emojis.forEach(emoji => {
+                emoji.style.animationPlayState = 'running';
+            });
         });
     </script>
 </body>
